@@ -190,6 +190,8 @@
       color: var(--text-main);
     }
 
+    .helper { font-size: 12px; color: var(--text-muted); }
+
     button[type="submit"] {
       padding: 10px 20px;
       background: var(--orange);
@@ -197,6 +199,16 @@
       border: none;
       font-weight: 900;
       cursor: pointer;
+    }
+
+    .flash {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,122,26,0.1);
+      color: var(--text-main);
+      display: none;
     }
   </style>
 </head>
@@ -208,7 +220,7 @@
     <!-- HEADER WITH LOGO -->
     <header>
       <div class="logo-wrap">
-        <img src="smasher-logo.png" alt="Smasher Gym Logo" />
+        <img src="smasher-logo.jpg" alt="Smasher Gym Logo" />
       </div>
 
       <div class="badge-24h">
@@ -258,22 +270,56 @@
     <!-- FORM -->
     <section class="section" id="form">
       <h2>سجّل بياناتك وهيتم التواصل معاك</h2>
+      <p class="helper">املأ البيانات واضغط تأكيد، وهنرجعلك في أقل من 10 دقائق.</p>
 
-      <form>
-        <input type="text" placeholder="الاسم الكامل*" required />
-        <input type="tel" placeholder="رقم الموبايل*" required />
-        <select>
-          <option>إنت عميل قديم؟</option>
-          <option>عميل قديم</option>
-          <option>مش مشترك حاليًا</option>
-          <option>عميل جديد</option>
+      <form id="lead-form" novalidate>
+        <input id="name" type="text" placeholder="الاسم الكامل*" autocomplete="name" required />
+        <input id="phone" type="tel" placeholder="رقم الموبايل*" inputmode="tel" autocomplete="tel" pattern="[0-9+\-\s]{8,}" required />
+        <select id="membership" required>
+          <option value="" disabled selected>إنت عميل قديم؟</option>
+          <option value="current">عميل قديم</option>
+          <option value="paused">مش مشترك حاليًا</option>
+          <option value="new">عميل جديد</option>
         </select>
 
         <button type="submit">تأكيد طلب الاشتراك</button>
+        <div id="flash" class="flash"></div>
       </form>
     </section>
 
   </div>
+
+  <script>
+    const form = document.getElementById('lead-form');
+    const flash = document.getElementById('flash');
+
+    function showMessage(message, type = 'success') {
+      flash.textContent = message;
+      flash.style.display = 'block';
+      flash.style.borderColor = type === 'success' ? 'rgba(255,122,26,0.4)' : 'rgba(255,68,68,0.4)';
+      flash.style.background = type === 'success' ? 'rgba(255,122,26,0.1)' : 'rgba(255,68,68,0.08)';
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const membership = document.getElementById('membership').value;
+
+      if (!name || !phone || !membership) {
+        showMessage('من فضلك املا كل البيانات المطلوبة.', 'error');
+        return;
+      }
+
+      if (flash.style.display === 'none') {
+        flash.style.display = 'block';
+      }
+
+      showMessage('استلمنا طلبك! فريق سماشر هيتواصل معاك حالاً.', 'success');
+      form.reset();
+    });
+  </script>
 
 </body>
 </html>
