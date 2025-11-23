@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smasher Gym – عرض شرس مش لأي حد</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Smasher King Annual Pass – سنة + 3 شهور هدية بـ 3500 بس لأساطير سماشر جيم." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #050505;
+      --bg-card: #111111;
+      --orange: #ff7a1a;
+      --orange-soft: #ff9b42;
+      --text-main: #f5f5f5;
+      --text-muted: #b3b3b3;
+      --danger: #ff4444;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Cairo", sans-serif;
+      background: #000;
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 16px 60px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding: 10px 0;
+    }
+
+    .logo-wrap img {
+      width: 85px;
+      height: auto;
+    }
+
+    .brand-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .badge-24h {
+      padding: 6px 14px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid var(--orange-soft);
+      background: rgba(255, 122, 26, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-24h span.icon {
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 25px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 35px);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    h1 span.highlight {
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      font-size: 12px;
+    }
+
+    .pill.orange {
+      background: rgba(255,122,26,0.14);
+      border: 1px solid var(--orange-soft);
+      color: #ffe0c1;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #ff7a1a, #ffb347);
+      color: #000;
+      font-weight: 900;
+      border-radius: 999px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-ghost {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* OFFER CARD */
+    .offer-card {
+      background: #111;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    .offer-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 5px;
+      color: var(--orange);
+    }
+
+    .offer-price-main {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .offer-list li {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    /* FORM */
+    .section { 
+      margin-top: 25px;
+      background: #0a0a0a;
+      padding: 18px;
+      border-radius: 14px;
+    }
+
+    form { display: grid; gap: 12px; margin-top: 12px; }
+
+    input, select, textarea {
+      background: #050505;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background: var(--orange);
+      border-radius: 10px;
+      border: none;
+      font-weight: 900;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- HEADER WITH LOGO -->
+    <header>
+      <div class="logo-wrap">
+        <img src="smasher-logo.png" alt="Smasher Gym Logo" />
+      </div>
+
+      <div class="badge-24h">
+        <span class="icon">🔥</span>
+        <span>جيم شغال 24 ساعة – لأبطال الليل</span>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>
+          لأبطال الليل والقدامى في سماشر:<br>
+          <span class="highlight">عرض سنوي شرس… مش لأي حد 🔥</span>
+        </h1>
+
+        <p class="hero-sub">
+          فتحنالك أقوى عرض قبل ما ننزّله للناس… سنة كاملة + 3 شهور هدية + سيشن برايفت + Freeze شهري.
+        </p>
+
+        <div class="hero-pills">
+          <div class="pill orange">للعملاء القدامى</div>
+          <div class="pill">عرض محدود</div>
+          <div class="pill">مناسب للجميع</div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'});">احجز مكانك الآن</button>
+        </div>
+      </div>
+
+      <!-- OFFER CARD -->
+      <div class="offer-card">
+        <div class="offer-title">Smasher King Annual Pass</div>
+        <div class="offer-price-main">3500 جنيه</div>
+
+        <ul class="offer-list">
+          <li>✔ سنة كاملة + 3 شهور هدية</li>
+          <li>✔ Freeze لمدة شهر</li>
+          <li>✔ 2 سيشن برايفت كوتش</li>
+          <li>✔ جلسة ساونا وبخار</li>
+          <li>✔ 6 دعوات مجانية</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section" id="form">
+      <h2>سجّل بياناتك وهيتم التواصل معاك</h2>
+
+      <form>
+        <input type="text" placeholder="الاسم الكامل*" required />
+        <input type="tel" placeholder="رقم الموبايل*" required />
+        <select>
+          <option>إنت عميل قديم؟</option>
+          <option>عميل قديم</option>
+          <option>مش مشترك حاليًا</option>
+          <option>عميل جديد</option>
+        </select>
+
+        <button type="submit">تأكيد طلب الاشتراك</button>
+      </form>
+    </section>
+
+  </div>
+
+</body>
+</html>
